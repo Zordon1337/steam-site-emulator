@@ -1,10 +1,7 @@
 <?php
 $user = $_GET['user'];
 $conn = mysqli_connect('localhost', 'Zordon', 'Zordon123!', 'steam-fake');
-$sql = "SELECT username FROM users WHERE username = $user";
-$result = $conn->query($sql);
-if($result->num_rows > 0) {
-$sql = 'SELECT joindate,level, bannedstatus, bannedtime, Test01PlayTime, Test01LastPlay FROM users';
+$sql = "SELECT username, joindate,level, bannedstatus, bannedtime, Test01PlayTime, Test01LastPlay FROM users WHERE username = '$user' ";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc(); 
 
@@ -431,11 +428,11 @@ property of their respective owners in the US and other countries.
 					<div data-panel='{&quot;maintainX&quot;:true,&quot;bFocusRingRoot&quot;:true,&quot;flow-children&quot;:&quot;row&quot;}' class='profile_item_links'>
 																												<div data-panel='{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}' class='profile_count_link ellipsis'>
 					    ";
-						if($row['banstatus'] = "1")
+						if($isbanned = "1")
 						{
 							echo "<p style='color:red;'>Banned since: $time";
 						} else {
-
+							echo "User doesn't have any bans";
 						}
 						
 						echo "
@@ -573,7 +570,7 @@ echo ';
 <link href='store_files/creator_hub.css' rel='stylesheet' type='text/css'>
 <link href='store_files/shared_responsive.css' rel='stylesheet' type='text/css'>
 <script type='text/javascript' src='store_files/jquery-1.8.3.min'></script>
-<script type='text/javascript'>$J = jQuery.noConflict();</script><script type='text/javascript'>VALVE_PUBLIC_PATH = 'https:\/\/store.cloudflare.steamstatic.com\/public\/';</script><script type='text/javascript' src='store_files/tooltip'></script>
+<script type='text/javascript'> = jQuery.noConflict();</script><script type='text/javascript'>VALVE_PUBLIC_PATH = 'https:\/\/store.cloudflare.steamstatic.com\/public\/';</script><script type='text/javascript' src='store_files/tooltip'></script>
 
 <script type='text/javascript' src='store_files/shared_global'></script>
 
@@ -584,8 +581,8 @@ echo ';
 <script type='text/javascript'>Object.seal && [ Object, Array, String, Number ].map( function( builtin ) { Object.seal( builtin.prototype ); } );</script>
 		<script type='text/javascript'>
 			document.addEventListener('DOMContentLoaded', function(event) {
-				$J.data( document, 'x_readytime', new Date().getTime() );
-				$J.data( document, 'x_oldref', GetNavCookie() );
+				.data( document, 'x_readytime', new Date().getTime() );
+				.data( document, 'x_oldref', GetNavCookie() );
 				SetupTooltips( { tooltipCSSClass: 'store_tooltip'} );
 		});
 		</script><script type='text/javascript' src='store_files/broadcast_carousel'></script>
@@ -810,7 +807,7 @@ property of their respective owners in the US and other countries.
 
 			
 <script type='text/javascript'>
-	$J( function() {
+	( function() {
 
 		GStoreItemData.AddStoreItemDataSet(
 			{'rgApps':[],'rgPackages':[],'rgBundles':[]}		);
@@ -846,10 +843,10 @@ property of their respective owners in the US and other countries.
 		InitAppPriorityLists( {} );
 
 		if ( GHomepage.recommendedByDeepDiveFocusedApp > 0 )
-		    $J('.deep_dive_omni_ctn').show();
+		    ('.deep_dive_omni_ctn').show();
 
 		
-					$J('#discovery_queue_static').hide();
+					('#discovery_queue_static').hide();
 						} );
 
 	function injectSearch (name, resultsContainerName, resultsContentName)
@@ -857,15 +854,15 @@ property of their respective owners in the US and other countries.
 		var g_rgUserPreferences = {
 			excluded_tags : [],
 			excluded_content_descriptors : [3,4]		};
-		var thing = $J('#'+name);
-		var elemSuggestionsCtn = $J('#deep_dive_searchterm_options');
-		var elemSuggestions = $J('#deep_dive_search_suggestion_contents');
+		var thing = ('#'+name);
+		var elemSuggestionsCtn = ('#deep_dive_searchterm_options');
+		var elemSuggestions = ('#deep_dive_search_suggestion_contents');
 		EnableSearchSuggestions( thing, '1_4_4_', 'PL', 1, 'english', g_rgUserPreferences, '15604948', elemSuggestionsCtn, elemSuggestions);
 	}
 </script>
 <h1 align='center'>That account doesn't exist</h1>
 </html>
 	";
-}
+
 
 ?>

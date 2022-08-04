@@ -267,7 +267,7 @@ property of their respective owners in the US and other countries.
 						<div class="login_btn_ctn">
 							<div id="login_btn_signin">
 								<button type="submit" class="btn_blue_steamui btn_medium login_btn">
-									<span>Sign In</span>
+									<span>Register</span>
 								</button>
 								</form>
 															</div>

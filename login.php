@@ -14,7 +14,6 @@ if($result->num_rows > 0) {
     session_start();
 
 
-    $_SESSION['user'] = $username;
     $conn = new mysqli("localhost", "Zordon", "Zordon123!", "steam-fake");
     if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
@@ -24,11 +23,9 @@ if($result->num_rows > 0) {
     $result = $conn->query($sql);
     
     $row = $result->fetch_assoc(); 
-    if($row['bannedstatus'] = "1")
-    {
-      Header('Location: banned.php');
-      die();
-    }
+
+
+
     header("Location: store.php?user=$username");
     die();
     echo "<form method='GET'>";
